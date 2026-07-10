@@ -1,0 +1,23 @@
+/* src/styles/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* ❌ Eliminado: scroll-padding-top: 64px; → conflicto con Tailwind */
+    overscroll-behavior-x: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overscroll-behavior-x: none;
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  input, button, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

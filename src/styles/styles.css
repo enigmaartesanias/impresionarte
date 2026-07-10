@@ -1,0 +1,264 @@
+/* Estilos Globales */
+html,
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* 
+    ✅ No uses overflow-y: hidden ni overscroll-behavior
+    Permitimos el scroll natural del navegador
+  */
+}
+
+/* 
+  ✅ Eliminado:
+  - scrollbar-width: none
+  - -ms-overflow-style: none
+  - body::-webkit-scrollbar { display: none }
+  Motivo: Ocultan el scroll pero no eliminan el desplazamiento, y pueden romper window.scrollTo()
+*/
+
+/* Añadimos scroll-behavior suave en todo el sitio */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reglas para el contenedor principal de la aplicación (usualmente #root) */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  /* No le des altura fija a #root si quieres que el body maneje el scroll */
+}
+
+/* Estilos del Logo */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Animaciones */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Animaciones de Escaneo QR */
+@keyframes scan-line {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Estilos Generales (pueden ser de utilidad o componentes base) */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* Pie de Página */
+.footer {
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   Galería de producto — imagen principal + thumbnails
+   ═══════════════════════════════════════════════════ */
+
+/* Contenedor de la imagen principal */
+.galeria-main-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+@media (min-width: 640px) {
+  .galeria-main-container {
+    height: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .galeria-main-container {
+    height: 650px;
+  }
+}
+
+/* Imagen principal */
+.galeria-imagen-principal {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  animation: galeria-fade-in 0.3s ease;
+}
+
+@keyframes galeria-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Fila de thumbnails */
+.galeria-thumbs-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 0;
+}
+
+/* Botón de cada thumbnail */
+.galeria-thumb-btn {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.galeria-thumb-btn:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.galeria-thumb-activo {
+  border-color: #374151 !important;
+  box-shadow: 0 0 0 2px rgba(55, 65, 81, 0.25);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Overlay gris sobre el thumb activo */
+.galeria-thumb-activo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: inherit;
+}
+
+/* Imagen dentro del thumbnail */
+.galeria-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive — thumbnails un poco más grandes en tablet+ */
+@media (min-width: 640px) {
+  .galeria-thumb-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+  }
+
+  .galeria-thumbs-row {
+    gap: 12px;
+    margin-top: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .galeria-thumb-btn {
+    width: 90px;
+    height: 90px;
+  }
+
+  .galeria-thumbs-row {
+    gap: 14px;
+    margin-top: 16px;
+  }
+}
