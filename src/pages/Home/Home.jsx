@@ -21,7 +21,7 @@ const Home = () => {
             </section>
 
             {/* Servicios Destacados */}
-            <section className="py-20 px-6 bg-[#fdfbf7]">
+            <section className="py-20 px-6 bg-[#F5F5F5]">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl font-bold text-gray-900 text-center mb-12 font-serif">Lo que hacemos</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -48,7 +48,7 @@ const Home = () => {
                             Ver catálogo completo →
                         </Link>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {productosMock.slice(0, 4).map(producto => (
                             <div key={producto.id} className="bg-white rounded-xl shadow-sm border border-[#e8dcc7] overflow-hidden flex flex-col hover:shadow-md transition-shadow">

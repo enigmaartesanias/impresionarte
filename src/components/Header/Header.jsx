@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const C = {
-    brand: '#2563eb', 
+    brand: '#2563eb',
     text: '#1a1a1a',
     sub: '#6b7280',
     crema: '#f8fafc',
@@ -69,60 +69,59 @@ const Header = () => {
                 id="main-header"
                 style={{
                     position: 'fixed', top: 0, left: 0, right: 0,
-                    height: 64, zIndex: 100,
+                    zIndex: 100,
                     backgroundColor: '#ffffff',
                     boxShadow: '0 1px 8px rgba(0,0,0,0.04)',
                     display: 'flex', alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '0 24px',
+                    padding: '18px 20px',
                 }}
             >
-                {/* Logo */}
-                <button onClick={() => goTo('/')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', gap: 8 }}>
+                {/* Logo (izquierda) */}
+                <button
+                    onClick={() => goTo('/')}
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}
+                >
                     <img
-                        src="/images/impresionarte.jpeg"
+                        src="/images/impresionarte.png"
                         alt="Impresión & Arte"
-                        style={{ height: 36, width: 'auto', objectFit: 'contain' }}
+                        className="h-14 sm:h-12 w-auto object-contain"
                         onError={(e) => { e.target.style.display = 'none'; }}
                     />
-                    <span style={{ fontWeight: 700, fontSize: 17, color: '#1a1a1a', fontFamily: 'Georgia, serif', letterSpacing: '-0.3px' }}>
-                        Impresión <span style={{ color: '#555' }}>&amp;</span> Arte
-                    </span>
                 </button>
 
-                {/* Hamburguesa móvil */}
+                {/* Hamburguesa móvil (derecha, estilo lineal) */}
                 <button
                     id="hamburger-btn"
                     onClick={toggleMenu}
                     aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
                     style={{
                         display: 'flex', flexDirection: 'column',
-                        justifyContent: 'center', alignItems: 'center',
-                        width: 40, height: 40,
-                        backgroundColor: '#111111',
-                        borderRadius: 8, border: 'none',
-                        cursor: 'pointer', gap: 5, padding: '10px 8px',
+                        justifyContent: 'center', alignItems: 'flex-end',
+                        width: 28, height: 40,
+                        backgroundColor: 'transparent',
+                        border: 'none',
+                        cursor: 'pointer', gap: 6, padding: 0,
+                        flexShrink: 0,
                     }}
                 >
                     <span style={{
-                        display: 'block', height: 2, width: '100%',
-                        backgroundColor: '#fff', borderRadius: 2,
-                        transform: menuOpen ? 'translateY(7px) rotate(45deg)' : 'none',
+                        display: 'block', height: 2, width: 24,
+                        backgroundColor: '#1a1a1a', borderRadius: 1,
+                        transform: menuOpen ? 'translateY(8px) rotate(45deg)' : 'none',
                         transition: 'transform 0.25s ease',
                     }} />
                     <span style={{
-                        display: 'block', height: 2, width: '100%',
-                        backgroundColor: '#fff', borderRadius: 2,
+                        display: 'block', height: 2, width: 24,
+                        backgroundColor: '#1a1a1a', borderRadius: 1,
                         opacity: menuOpen ? 0 : 1,
                         transition: 'opacity 0.2s ease',
                     }} />
                     <span style={{
-                        display: 'block', height: 2,
-                        width: menuOpen ? '100%' : '60%',
-                        alignSelf: 'flex-end',
-                        backgroundColor: '#fff', borderRadius: 2,
-                        transform: menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none',
-                        transition: 'transform 0.25s ease, width 0.2s ease',
+                        display: 'block', height: 2, width: 24,
+                        backgroundColor: '#1a1a1a', borderRadius: 1,
+                        transform: menuOpen ? 'translateY(-8px) rotate(-45deg)' : 'none',
+                        transition: 'transform 0.25s ease',
                     }} />
                 </button>
 
@@ -139,11 +138,12 @@ const Header = () => {
             <nav
                 id="mobile-menu-nav"
                 style={{
-                    position: 'fixed', top: 64, left: 0, right: 0, bottom: 0, zIndex: 99,
+                    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 99,
                     display: 'flex', flexDirection: 'column', backgroundColor: '#ffffff',
                     transform: menuOpen ? 'translateX(0)' : 'translateX(-100%)',
                     transition: 'transform 0.3s ease-in-out',
                     boxShadow: menuOpen ? '4px 0 24px rgba(0,0,0,0.08)' : 'none',
+                    paddingTop: 96,
                 }}
             >
                 <div style={{ flex: 1, overflowY: 'auto', padding: '16px 20px' }}>

@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        // Montserrat como fuente sans principal (light 300, regular 400, bold 700)
+        sans: ['Montserrat', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#2563eb', // Azul corporativo

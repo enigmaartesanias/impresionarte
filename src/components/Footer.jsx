@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f5e6d3] text-gray-900 py-12 w-full mt-auto font-serif">
+    <footer className="bg-[#f5e6d3] text-gray-900 py-12 w-full mt-auto font-monserrat">
       <div className="container mx-auto px-8 max-w-6xl">
 
         {/* Contenido principal */}
@@ -10,10 +10,9 @@ const Footer = () => {
 
           {/* Columna 1: Información */}
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold mb-4 text-gray-900">Impresión & Arte Editorial</h3>
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Impresión Arte Perú</h3>
             <p className="text-base text-gray-800 leading-relaxed">
-              Av. Principal 123<br />
-              Centro Comercial de Impresiones<br />
+              Jr. General Orbegoso 249, Dpto. 634<br />
               Lima - Perú
             </p>
           </div>
@@ -22,10 +21,10 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-4 text-gray-900">Contacto</h3>
             <p className="text-base text-gray-800 mb-2">
-              contacto@impresionarteficticio.com
+              ventas@impresionarteperu.com
             </p>
             <p className="text-base text-gray-800">
-              WhatsApp: +51 960 282 376
+              WhatsApp: 999 698 361 / 998 738 077
             </p>
           </div>
 
